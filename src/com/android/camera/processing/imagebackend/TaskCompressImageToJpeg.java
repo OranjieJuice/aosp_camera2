@@ -35,6 +35,7 @@ import com.android.camera.session.CaptureSession;
 import com.android.camera.util.ExifUtil;
 import com.android.camera.util.JpegUtilNative;
 import com.android.camera.util.Size;
+import com.android.camera.vaas.VAASNative;
 import com.google.common.base.Optional;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
@@ -277,6 +278,8 @@ public class TaskCompressImageToJpeg extends TaskJpegEncode {
                         byteBufferResource.close();
                         return;
                     }
+
+                    VAASNative.getInstance().process(img.proxy, img.crop, inputImage.orientation.getDegrees());
 
                     // Do the actual compression here.
                     numBytes = compressJpegFromYUV420Image(

@@ -148,6 +148,7 @@ import com.android.camera.util.IntentHelper;
 import com.android.camera.util.PhotoSphereHelper.PanoramaViewHelper;
 import com.android.camera.util.QuickActivity;
 import com.android.camera.util.ReleaseHelper;
+import com.android.camera.vaas.VAASNative;
 import com.android.camera.widget.FilmstripView;
 import com.android.camera.widget.Preloader;
 import com.android.camera2.R;
@@ -1627,6 +1628,8 @@ public class CameraActivity extends QuickActivity
         profile.mark();
         mCameraAppUI.prepareModuleUI();
         profile.mark("Init Current Module UI");
+        VAASNative.getInstance().deinit();
+        VAASNative.getInstance().init();
         mCurrentModule.init(this, isSecureCamera(), isCaptureIntent());
         profile.mark("Init CurrentModule");
 
@@ -2234,6 +2237,7 @@ public class CameraActivity extends QuickActivity
         }
         CameraAgentFactory.recycle(CameraAgentFactory.CameraApi.API_1);
         CameraAgentFactory.recycle(CameraAgentFactory.CameraApi.AUTO);
+        VAASNative.getInstance().deinit();
     }
 
     @Override

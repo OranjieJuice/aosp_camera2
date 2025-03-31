@@ -1,0 +1,1 @@
+视觉算法加速系统之拍照应用软件(注：此应用基于AOSP的Camera2修改，最后一次提交即为本项目的修改，编译系统前应参考最后一次提交修改本地Camera2应用)，详情见[完整文档](https://github.com/OranjieJuice/vaas_core/blob/main/README.md)。

@@ -46,6 +46,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Camera"
         android:usesCleartextTraffic="false" >
+        <uses-native-library android:name="libvaas_jni.so" />
         <activity
             android:name="com.android.camera.CameraActivity"
             android:clearTaskOnLaunch="true"
